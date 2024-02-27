@@ -44,9 +44,19 @@ Install the project's Node.js dependencies.
 npm install
 ```
 
+#### Start the Backend Service in Development Mode
+
+Before synchronizing the database schema, start the backend service to compile TypeScript files to JavaScript.
+
+```powershell
+npm run start:dev
+```
+
+Now, stop the development server by pressing Ctrl + C in your terminal. This step is necessary to ensure that the TypeScript files are compiled, making the schema creation process possible.
+
 #### Synchronize Database Schema
 
-Set up the initial schema.
+With the TypeScript compilation done, set up the initial schema.
 
 ```powershell
 npx mikro-orm schema:create -r
@@ -61,8 +71,9 @@ npx mikro-orm seeder:run
 ``` -->
 
 
+#### Restart the Backend Service
 
-Start the backend service in development mode.
+After setting up the database schema, restart the backend service in development mode for your changes to take effect.
 
 ```powershell
 npm run start:dev
@@ -99,6 +110,33 @@ Example response:
 
 This response indicates the closest available charging options based on the provided location, including both charging stations and registered users with electric cars.
 
+
+
+## Frontend Setup
+The frontend of the Electric Car Charging Finder App is built with Vue 3.
+
+
+
+First, navigate to the Frontend Directory.
+
+```cd .\electric-car-station\frontend```
+
+#### Change your current working directory to the frontend service directory.
+
+Install the project's Node.js dependencies for the frontend.
+
+```npm install```
+
+
+
+#### Start the Development Server
+
+Start the Vue development server. This will compile the frontend and serve it.
+
+```npm run serve```
+
+Open your browser and go to http://localhost:8080 to view the frontend application.
+
 ## Additional Commands
 
 ### Running Tests
@@ -115,6 +153,5 @@ Compile the app for production into the `build` folder.
 
 ```powershell
 npm run build
-```
 ```
 

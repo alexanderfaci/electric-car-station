@@ -15,8 +15,16 @@ async function bootstrap() {
     forbidNonWhitelisted: true,      // Disallow non-whitelisted properties
   }));
 
+  // Enable CORS for your Vue frontend
+  app.enableCors({
+    origin: 'http://localhost:8080', // Allow requests from the Vue app origin
+    methods: 'GET,POST,PUT,DELETE',  // Optionally restrict to certain methods
+    allowedHeaders: 'Content-Type,Authorization', // Optionally restrict headers
+  });
+
   // Start the application
   await app.listen(process.env.PORT || 3000); // Use port from .env or default to 3000
 }
 
 bootstrap();
+
